@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+:root{
+    --bgColor: #2b2b2b;
+    --textPrimary: #e0e0e0;
+    --textSecondary: #888;
+    --primaryColor: #a8d08d;
+    --buttonBg: #444;
+    --buttonHover: #555;
+}
+
+body{
+    font-family: 'Courier Prime', monospace;
+    background-color: var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+
+main{
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: none;
+}
+
+h1{
+    color: var(--primaryColor);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 svg{
+    width: 40px;
+    fill: var(--primaryColor);
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+    align-items: center;
+}
+
+#buttons{
+    text-align: right;
+}
+
+#info{
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+}
+
+button{
+    background: var(--buttonBg);
+    border: 0;
+    color: var(--textPrimary);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+button:hover{
+    background: var(--buttonHover);
+    color: var(--primaryColor);
+}
+
+div#game{
+    line-height:35px;
+    height:105px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+    background: none;
+}
+
+div#game:focus{
+    outline: 0;
+}
+
+#words{
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+
+#game:focus #words{
+    filter: blur(0);
+}
+
+#focus-error {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding-top: 35px;
+    font-style: italic;
+    color: var(--textSecondary);
+}
+
+#game:focus #focus-error{
+    display:none;
+}
+
+div.word{
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    margin: 0 5px;
+}
+
+.letter.correct{
+    color: var(--textPrimary);
+}
+
+.letter.incorrect{
+    color: #f55;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#cursor{
+    display: none;
+    width: 2px;
+    height: 1.6rem;
+    background: var(--primaryColor);
+    position: fixed;
+    top: 198px;
+    left: 18px;
+    animation: blink 1s infinite;
+}
+
+#game:focus #cursor{
+    display: block;
+}
+
+#game.over #words{
+    opacity: .5;
+    filter: blur(0px);
+}
+
+#game.over:focus #cursor{
+    display:none;
+}
+
+#game.over #focus-error {
+    display: none;
+}
