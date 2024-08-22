@@ -50,6 +50,13 @@ To contribute or modify the game:
 3. Test your changes thoroughly.
 4. Submit a pull request with a detailed description of your changes.
 
+
+## Live Demo
+
+You can play the game live at https://callme-eddie.github.io/Type-Racer/
+Feel free to try it out and share your feedback!
+
+
 ## License
 
 This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
